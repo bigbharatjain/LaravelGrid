@@ -1,4 +1,4 @@
-#STEPS TO IMPLEMENT GRID IN LARAVEL 5.x
+# STEPS TO IMPLEMENT GRID IN LARAVEL 5.x
 
 1. Copy App/Http/Controllers/GridsController.php.
 2. Copy App/Http/Grids/Grids.php.
@@ -18,13 +18,16 @@
 		- and so on.
 
 9. In your Controller,
+	```
 	use App\Grids\InvoicesGrids;
 
 	public function datatableList(Request $request) {    // create route for this
-        $invoicesGrids = new InvoicesGrids();
-        return $invoicesGrids->getJSON();    
-    }
+		$invoicesGrids = new InvoicesGrids();
+		return $invoicesGrids->getJSON();    
+	}
+	```
 
+   ```
    /**
      * Display a listing of the resource.
      *
@@ -36,3 +39,4 @@
         $dataGridHtml = $invoicesGrids->getHtml();
         return view('your-view-name', compact('dataGridHtml'));
     }
+    ```
